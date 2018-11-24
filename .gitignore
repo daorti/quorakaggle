@@ -1,2 +1,14 @@
-# Google App Engine generated folder
-appengine-generated/
+/CVS/*
+**/CVS/*
+.cvsignore
+*/.cvsignore
+*.csv
+
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
