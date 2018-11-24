@@ -1,15 +1,16 @@
 import os
-os.chdir('C:/Users/danie/Desktop/Archivos/Kaggle/Quora/DANI/code')
+os.chdir('C:/Users/danie/Desktop/Archivos/Kaggle/Quora/quorakaggle/DANI/code')
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer, HashingVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import roc_auc_score
-import nltk
-nltk.download()
 from nltk.stem.snowball import SnowballStemmer
 from nltk.stem.porter import PorterStemmer
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import f1_score
+
+import nltk
+nltk.download()
 
 # Leemos los datos
 data=pd.read_csv('../data/input/train.csv')
@@ -90,19 +91,19 @@ X_test_hv=hv.transform(X_test)
 ########## MODELOS ##########
 
 # Logistic Regresion para CoutVectorizer
-lg = LogisticRegression(C=1.0)
-lg.fit(X_train_ctv, y_train)
-roc_auc_score(y_test, lg.predict(X_test_ctv))
+lg_ctv = LogisticRegression(C=1.0)
+lg_ctv.fit(X_train_ctv, y_train)
+f1_score(y_test, lg_ctv.predict(X_test_ctv))
 
 # Logistic Regresion para TfidfVectorizer
 lg_tfv = LogisticRegression(C=1.0)
 lg_tfv.fit(X_train_tfv, y_train)
-roc_auc_score(y_test, lg_tfv.predict(X_test_tfv))
+f1_score(y_test, lg_ftv.predict(X_test_ftv))
 
 # Logistic Regresion para HashingVectorizer
 lg_hv = LogisticRegression(C=1.0)
 lg_hv.fit(X_train_hv, y_train)
-roc_auc_score(y_test, lg_hv.predict(X_test_hv))
+f1_score(y_test, lg_ftv.predict(X_test_ftv))
 
 
 

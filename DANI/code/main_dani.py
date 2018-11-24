@@ -1,7 +1,7 @@
 
 # Importamos funciones
-from stemmer import Stemmer
-from vectorizer import Vectorizer
+from aux_functions import Stemmer
+from aux_functions import Vectorizer
 
 # STEMMING
 data['question_text'] = Stemmer(data_=data, name_='Porter', field_='question_text')
